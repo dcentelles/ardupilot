@@ -236,13 +236,13 @@ void SITL_State::_output_to_flightgear(void)
 
     fdm.version = 0x18;
     fdm.padding = 0;
-    fdm.longitude = radians(sfdm.longitude);
-    fdm.latitude = radians(sfdm.latitude);
+    fdm.longitude = radians_double(sfdm.longitude);
+    fdm.latitude = radians_double(sfdm.latitude);
     fdm.altitude = sfdm.altitude;
     fdm.agl = sfdm.altitude;
-    fdm.phi   = radians(sfdm.rollDeg);
-    fdm.theta = radians(sfdm.pitchDeg);
-    fdm.psi   = radians(sfdm.yawDeg);
+    fdm.phi   = radians_double(sfdm.rollDeg);
+    fdm.theta = radians_double(sfdm.pitchDeg);
+    fdm.psi   = radians_double(sfdm.yawDeg);
     if (_vehicle == ArduCopter) {
         fdm.num_engines = 4;
         for (uint8_t i=0; i<4; i++) {
